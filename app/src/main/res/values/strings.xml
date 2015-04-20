@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CONTROL GANADERO.</string>
+    <string name="asociacion">ASOCIACION GANADERA LOCAL VICENTE GUERRERO.</string>
+    <string name="aplicacion">APLICACION PARA EL CONTROL DE GANADO VACUNO</string>
+    <string name="bienvenido">BIENVENIDO!!</string>
+    <string name="action_settings">Settings</string>
+    <string name="iniciar">INICIAR</string>
+    <string name="title_activity_registro_vacas">REGISTRO DE VACAS</string>
+    <string name="inserta">INSERTA TODOS LOS DATOS QUE SE TE PIDEN!</string>
+    <string name="arete">No.Arete</string>
+    <string name="fecha_nac">Fecha de Nacimiento</string>
+    <string name="nombre">Nombre</string>
+    <string name="sex">Sexo</string>
+    <string name="fecha_gest">Fecha de Gestacion</string>
+    <string name="fecha_par">Fecha de Parto</string>
+    <string name="guardar">Guardar</string>
+    <string name="buscar">Buscar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="limpiar">Limpiar</string>
+    <string name="ver">Ver Todos</string>
+    <string name="Selecion">Seleccione un Sexo</string>
+    <string name="nuevo">Nuevo</string>
+    <string name="msg1">Error!!!</string>
+    <string name="msg2">El numero de arete, la fecha de nacimiento, el nombre o el sexo esta vacio. </string>
+    <string name="msg3">Se ha producido un error.</string>
+
+    <string name="title_activity_vista_todo">vista_todo</string>
+
+</resources>
