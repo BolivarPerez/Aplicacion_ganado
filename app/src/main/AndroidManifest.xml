@@ -19,7 +19,7 @@
         <activity
             android:name=".registro_vacas"
             android:label="@string/title_activity_registro_vacas"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -27,7 +27,15 @@
         <activity
             android:name=".vista_todo"
             android:label="@string/title_activity_vista_todo"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".busqueda_vacas"
+            android:label="@string/title_activity_busqueda_vacas"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

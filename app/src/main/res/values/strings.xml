@@ -9,6 +9,7 @@
     <string name="iniciar">INICIAR</string>
     <string name="title_activity_registro_vacas">REGISTRO DE VACAS</string>
     <string name="inserta">INSERTA TODOS LOS DATOS QUE SE TE PIDEN!</string>
+    <string name="inserta2">INSERTA EL NO.DE ARETE PARA LA BUSQUEDA</string>
     <string name="arete">No.Arete</string>
     <string name="fecha_nac">Fecha de Nacimiento</string>
     <string name="nombre">Nombre</string>
@@ -26,7 +27,8 @@
     <string name="msg1">Error!!!</string>
     <string name="msg2">El numero de arete, la fecha de nacimiento, el nombre o el sexo esta vacio. </string>
     <string name="msg3">Se ha producido un error.</string>
-
     <string name="title_activity_vista_todo">vista_todo</string>
+    <string name="title_activity_busqueda_vacas">BUSQUEDA</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

@@ -54,11 +54,13 @@ public class MainActivity extends ActionBarActivity  {
                 return true;
 
             case R.id.bus:
+                Intent intent2 = new Intent(MainActivity.this, busqueda_vacas.class);
+                startActivity(intent2);
                 return true;
 
             case R.id.verT:
-               //Intent intent3 = new Intent(MainActivity.this, vista_todo.class);
-                //startActivity(intent3);
+               Intent intent3 = new Intent(MainActivity.this, vista_todo.class);
+                startActivity(intent3);
                 return true;
             default:
 
