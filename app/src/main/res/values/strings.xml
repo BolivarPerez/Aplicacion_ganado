@@ -27,8 +27,24 @@
     <string name="msg1">Error!!!</string>
     <string name="msg2">El numero de arete, la fecha de nacimiento, el nombre o el sexo esta vacio. </string>
     <string name="msg3">Se ha producido un error.</string>
-    <string name="title_activity_vista_todo">vista_todo</string>
+    <string name="title_activity_vista_todo">Lista de Registros</string>
     <string name="title_activity_busqueda_vacas">BUSQUEDA</string>
     <string name="hello_world">Hello world!</string>
+    <string name="este_num">Este numero de arete ya esta registrado</string>
+    <string name="agrego">Se agrego un nuevo registro</string>
+    <string name="negativo">No hemos podido Guardar el Registro!!</string>
+    <string name="debes">"Debes ingresar el numero de arete!!</string>
+    <string name="no_se_emcontro">No se encontro el registro</string>
+    <string name="no_bus">No podemos realizar la busqueda!!</string>
+    <string name="primero">Primero debes realizar la busqueda!!</string>
+    <string name="modif">Se ha modificado correctamente el registro!!</string>
+    <string name="no_existe">No existe el registro que desea modificar!!</string>
+    <string name="no_editar">No hemos podido Editar el Registro!!</string>
+    <string name="se_elim">Se elimino correctamente el registro!!</string>
+    <string name="no_elim">No existe el registro que desea eliminar!!</string>
+    <string name="no_se_puede">No hemos podido Eliminar el Registro!!</string>
+
+    <string name="radio1">MACHO</string>
+    <string name="radio2">HEMBRA</string>
 
 </resources>

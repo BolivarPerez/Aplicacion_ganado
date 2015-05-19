@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    card_view:cardCornerRadius="0dp" >
+
+    <RelativeLayout
+        android:background="#ff17e2ff"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/v1">
+
+
+        <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No.arete"
+        android:id="@+id/no_arete"
+        android:textColor="#ff000000"
+        android:textSize="13sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F.Nacimiento"
+            android:id="@+id/fecha1"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/no_arete"
+            android:layout_toEndOf="@id/no_arete"
+            android:layout_marginLeft="155dp"
+            android:layout_marginStart="15dp"
+            />
+
+        <TextView
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:id="@+id/nombre"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+
+        <TextView
+            android:layout_marginTop="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sexo"
+            android:id="@+id/sexo"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/nombre"
+            android:layout_toEndOf="@id/nombre"
+            android:layout_marginLeft="120dp"
+            android:layout_marginStart="15dp"
+            />
+
+        <TextView
+            android:layout_marginTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F.Gestacion"
+            android:id="@+id/fecha2"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+
+            />
+
+        <TextView
+            android:layout_marginTop="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F.Parto"
+            android:id="@+id/fecha3"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/fecha2"
+            android:layout_toEndOf="@id/fecha2"
+            android:layout_marginLeft="105dp"
+            android:layout_marginStart="15dp"
+            />
+
+        </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -2,14 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#b00bdbff"
     tools:context="com.example.boli.aplicacion_ganado.registro_vacas">
 
     <LinearLayout
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       android:orientation="vertical">
+       android:orientation="vertical"
+        >
 
     <TextView
+        android:layout_marginTop="15dp"
         android:text="@string/inserta"
         android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
@@ -29,17 +34,31 @@
             android:digits="1234567890"/>
 
         <TextView
+            android:layout_marginTop="15dp"
             android:text="@string/fecha_nac"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <EditText
             android:id="@+id/ed_fecha_nacimiento"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:onClick="Fecha_1"
-            />
+            android:onClick="Fecha_1" />
 
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:src="@drawable/calendar"
+            android:onClick="Fecha_1"/>
+
+
+</LinearLayout>
         <TextView
+            android:layout_marginTop="15dp"
             android:text="@string/nombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -49,6 +68,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
+            android:layout_marginTop="15dp"
             android:text="@string/sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -56,30 +76,86 @@
         <EditText
             android:id="@+id/ed_sexo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio1"
+                android:id="@+id/chec1"
+                android:layout_marginLeft="40dp"
+                android:textSize="15dp"
+                android:onClick="macho"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/radio2"
+                android:id="@+id/chec2"
+                android:textSize="15dp"
+                android:layout_marginLeft="35dp"
+                android:onClick="hembra"/>
+            </LinearLayout>
 
         <TextView
+            android:layout_marginTop="15dp"
             android:text="@string/fecha_gest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <EditText
             android:id="@+id/ed_fecha_gestacion"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:onClick="Fecha_2"/>
 
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:src="@drawable/calendar"
+            android:onClick="Fecha_2"/>
+
+        </LinearLayout>
+
         <TextView
+            android:layout_marginTop="15dp"
             android:text="@string/fecha_par"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
-        <EditText
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+               <EditText
             android:id="@+id/ed_fecha_parto"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:onClick="Fecha_3"/>
 
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:src="@drawable/calendar"
+            android:onClick="Fecha_3"/>
+
+        </LinearLayout>
+
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -90,55 +166,10 @@
         android:text="@string/guardar"
         android:id="@+id/btnguardar"
         android:onClick="Guardar"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+            android:background="#ffbfc8ff" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/buscar"
-            android:id="@+id/btnbuscar"
-            android:onClick="Buscar"
-            android:layout_weight="1"/>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/eliminar"
-                android:id="@+id/btneliminar"
-                android:onClick="Eliminar"
-                android:layout_weight="1"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/editar"
-                android:id="@+id/btneditar"
-                android:onClick="Editar"
-                android:layout_weight="1"/>
-
-            </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/limpiar"
-                android:id="@+id/btnlimpiar"
-                android:onClick="Limpiar"
-                android:layout_weight="1"/>
-
-            </LinearLayout>
     </LinearLayout>
 </ScrollView>

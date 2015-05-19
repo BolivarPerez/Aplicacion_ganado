@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,6 +26,8 @@ import java.util.Calendar;
 public class registro_vacas extends ActionBarActivity implements View.OnClickListener {
     EditText ed_no_arete, ed_fecha_nacimiento, ed_nombre, ed_sexo, ed_fecha_gestacion, ed_fecha_parto;
     private int mYear, mMonth, mDay;
+    CheckBox macho, hembra;
+    String sex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,41 +40,50 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         ed_sexo = (EditText) findViewById(R.id.ed_sexo);
         ed_fecha_gestacion = (EditText) findViewById(R.id.ed_fecha_gestacion);
         ed_fecha_parto = (EditText) findViewById(R.id.ed_fecha_parto);
+
+        macho = (CheckBox) findViewById(R.id.chec1);
+        hembra = (CheckBox) findViewById(R.id.chec2);
+
     }
 
     public void Guardar(View v) {
 
         boolean funciona = true;
-        if (ed_no_arete.getText().toString().equals("") || ed_fecha_nacimiento.getText().toString().equals("") || ed_nombre.getText().toString().equals("") || ed_sexo.getText().toString().equals("")) {
-            Dialog d = new Dialog(this);
-            d.setTitle(R.string.msg1);
-            TextView tv = new TextView(this);
-            tv.setText(R.string.msg2);
-            d.setContentView(tv);
-            d.show();
+        if (ed_no_arete.getText().toString().equals("") || ed_fecha_nacimiento.getText().toString().equals("")|| ed_nombre.getText().toString().equals("")  ) {
+
+            Toast.makeText(this, R.string.msg2 , Toast.LENGTH_SHORT).show();
 
         } else {
             try {
                 AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
                 SQLiteDatabase bd = admin.getWritableDatabase();
+
                 String n_arete = ed_no_arete.getText().toString();
                 String f_nacimiento = ed_fecha_nacimiento.getText().toString();
                 String nombre = ed_nombre.getText().toString();
-                String sexo = ed_sexo.getText().toString();
-                //String sexo = spinner1.getSelectedItem().toString();
+                String sex = ed_sexo.getText().toString();
+
                 String f_gestacion = ed_fecha_gestacion.getText().toString();
                 String f_parto = ed_fecha_parto.getText().toString();
 
+                if (macho.isChecked() == true){
+                    sex = "MACHO";
+                 }
+                else if (hembra.isChecked() == true){
+                    sex = "HEMBRA";
+                }
+
+
                 Cursor fila = bd.rawQuery("select f_nacimiento, nombre, sexo, f_gestacion, f_parto from ganado where n_arete=" + n_arete, null);
                 if (fila.getCount() >= 1) {
-                    Toast.makeText(this, "Este numero de arete ya esta registrado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.este_num, Toast.LENGTH_SHORT).show();
                 } else {
 
                     ContentValues registro = new ContentValues();
                     registro.put("n_arete", n_arete);
                     registro.put("f_nacimiento", f_nacimiento);
                     registro.put("nombre", nombre);
-                    registro.put("sexo", sexo);
+                    registro.put("sexo", sex);
 
                     registro.put("f_gestacion", f_gestacion);
                     registro.put("f_parto", f_parto);
@@ -85,17 +97,14 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
                     ed_sexo.setText("");
                     ed_fecha_gestacion.setText("");
                     ed_fecha_parto.setText("");
+                    macho.setChecked(false);
+                    hembra.setChecked(false);
 
-                    Toast.makeText(this, "Se agrego un nuevo registro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.agrego, Toast.LENGTH_SHORT).show();
                 }//fin else
                 }catch(Exception e){
 
-                    Dialog d = new Dialog(this);
-                    d.setTitle(R.string.msg3);
-                    TextView tv = new TextView(this);
-                    tv.setText("");
-                    d.setContentView(tv);
-                    d.show();
+                Toast.makeText(this, R.string.negativo, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -103,85 +112,13 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         }
 
 
-    public void Buscar(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-        String narete = ed_no_arete.getText().toString();
-        Cursor fila = bd.rawQuery("select f_nacimiento, nombre, sexo, f_gestacion, f_parto from ganado where n_arete=" + narete, null);
-        if (fila.moveToFirst()) {
-            ed_fecha_nacimiento.setText(fila.getString(0));
-            ed_nombre.setText(fila.getString(1));
-            ed_sexo.setText(fila.getString(2));
-            ed_fecha_gestacion.setText(fila.getString(3));
-            ed_fecha_parto.setText(fila.getString(4));
-        } else {
-            Toast.makeText(this, "No se encontro el registro", Toast.LENGTH_SHORT).show();
-        }
-        bd.close();
+    public void macho (View v){
+
+        hembra.setChecked(false);
     }
 
-    public void Eliminar(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-        String narete = ed_no_arete.getText().toString();
-        int cant = bd.delete("ganado", "n_arete=" + narete, null);
-        bd.close();
-
-        ed_no_arete.setText("");
-        ed_fecha_nacimiento.setText("");
-        ed_nombre.setText("");
-        ed_sexo.setText("");
-        ed_fecha_gestacion.setText("");
-        ed_fecha_parto.setText("");
-
-        if (cant == 1) {
-            Toast.makeText(this, "Se elimino correctamente el registro!!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "No existe el registro que desea eliminar!!", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    public void Editar(View v) {
-        AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
-        SQLiteDatabase bd = admin.getWritableDatabase();
-
-        String narete = ed_no_arete.getText().toString();
-        String f_nacimiento = ed_fecha_nacimiento.getText().toString();
-        String nombre = ed_nombre.getText().toString();
-        String sexo = ed_sexo.getText().toString();
-        String f_gestacion = ed_fecha_gestacion.getText().toString();
-        String f_parto = ed_fecha_parto.getText().toString();
-
-        ContentValues registro = new ContentValues();
-        registro.put("n_arete", narete);
-        registro.put("f_nacimiento", f_nacimiento);
-        registro.put("nombre", nombre);
-        registro.put("sexo", sexo);
-        registro.put("f_gestacion", f_gestacion);
-        registro.put("f_parto", f_parto);
-
-        int cant = bd.update("ganado", registro, "n_arete=" + narete, null);
-        bd.close();
-
-
-        if (cant == 1) {
-
-            Toast.makeText(this, "Se ha modificado correctamente el registro!!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "No existe el registro que desea modificar!!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    public void Limpiar(View v) {
-
-        ed_no_arete.setText("");
-        ed_fecha_nacimiento.setText("");
-        ed_nombre.setText("");
-        ed_sexo.setText("");
-        ed_fecha_gestacion.setText("");
-        ed_fecha_parto.setText("");
-
+    public void hembra(View v){
+        macho.setChecked(false);
     }
 
     public void Fecha_1(View v){
