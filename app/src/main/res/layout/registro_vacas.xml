@@ -1,4 +1,5 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,7 +38,8 @@
             android:layout_marginTop="15dp"
             android:text="@string/fecha_nac"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -47,7 +49,8 @@
             android:id="@+id/ed_fecha_nacimiento"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:onClick="Fecha_1" />
+            android:onClick="Fecha_1"
+            android:enabled="false"/>
 
         <ImageView
             android:layout_width="35dp"
@@ -119,7 +122,8 @@
             android:id="@+id/ed_fecha_gestacion"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:onClick="Fecha_2"/>
+            android:onClick="Fecha_2"
+            android:enabled="false"/>
 
         <ImageView
             android:layout_width="35dp"
@@ -144,7 +148,8 @@
             android:id="@+id/ed_fecha_parto"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:onClick="Fecha_3"/>
+            android:onClick="Fecha_3"
+            android:enabled="false"/>
 
         <ImageView
             android:layout_width="35dp"

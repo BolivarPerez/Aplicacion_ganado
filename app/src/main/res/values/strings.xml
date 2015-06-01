@@ -3,13 +3,15 @@
 
     <string name="app_name">CONTROL GANADERO.</string>
     <string name="asociacion">ASOCIACION GANADERA LOCAL VICENTE GUERRERO.</string>
-    <string name="aplicacion">APLICACION PARA EL CONTROL DE GANADO VACUNO</string>
+    <string name="aplicacion">APLICACION PARA EL CONTROL DE GANADO VACUNO.</string>
     <string name="bienvenido">BIENVENIDO!!</string>
+
     <string name="action_settings">Settings</string>
+
     <string name="iniciar">INICIAR</string>
     <string name="title_activity_registro_vacas">REGISTRO DE VACAS</string>
-    <string name="inserta">INSERTA TODOS LOS DATOS QUE SE TE PIDEN!</string>
-    <string name="inserta2">INSERTA EL NO.DE ARETE PARA LA BUSQUEDA</string>
+    <string name="inserta">INSERTA TODOS LOS DATOS QUE SE TE PIDEN!!</string>
+    <string name="inserta2">INSERTA EL NO.DE ARETE PARA LA BUSQUEDA!!</string>
     <string name="arete">No.Arete</string>
     <string name="fecha_nac">Fecha de Nacimiento</string>
     <string name="nombre">Nombre</string>
@@ -22,19 +24,19 @@
     <string name="editar">Editar</string>
     <string name="limpiar">Limpiar</string>
     <string name="ver">Ver Todos</string>
-    <string name="Selecion">Seleccione un Sexo</string>
+    <string name="Selecion">Seleccione un Sexo!!</string>
     <string name="nuevo">Nuevo</string>
     <string name="msg1">Error!!!</string>
-    <string name="msg2">El numero de arete, la fecha de nacimiento, el nombre o el sexo esta vacio. </string>
+    <string name="msg2">El numero de arete, la fecha de nacimiento, el nombre o el sexo esta vacio!! </string>
     <string name="msg3">Se ha producido un error.</string>
     <string name="title_activity_vista_todo">Lista de Registros</string>
     <string name="title_activity_busqueda_vacas">BUSQUEDA</string>
     <string name="hello_world">Hello world!</string>
-    <string name="este_num">Este numero de arete ya esta registrado</string>
-    <string name="agrego">Se agrego un nuevo registro</string>
+    <string name="este_num">Este numero de arete ya esta registrado!!</string>
+    <string name="agrego">Se agrego un nuevo registro!!</string>
     <string name="negativo">No hemos podido Guardar el Registro!!</string>
     <string name="debes">"Debes ingresar el numero de arete!!</string>
-    <string name="no_se_emcontro">No se encontro el registro</string>
+    <string name="no_se_emcontro">No se encontro el registro!!</string>
     <string name="no_bus">No podemos realizar la busqueda!!</string>
     <string name="primero">Primero debes realizar la busqueda!!</string>
     <string name="modif">Se ha modificado correctamente el registro!!</string>

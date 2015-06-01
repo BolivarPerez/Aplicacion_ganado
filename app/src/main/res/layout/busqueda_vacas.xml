@@ -1,9 +1,9 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#b00bdbff"
-
     tools:context="com.example.boli.aplicacion_ganado.busqueda_vacas">
 
     <LinearLayout
@@ -51,7 +51,9 @@
             android:id="@+id/ed_fecha_nacimiento"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:onClick="Fecha_1" />
+            android:onClick="Fecha_1"
+            android:enabled="false"/>
+
         <ImageView
             android:layout_width="35dp"
             android:layout_height="40dp"

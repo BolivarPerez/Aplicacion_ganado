@@ -20,6 +20,7 @@ public class adaptadorvacas extends RecyclerView.Adapter<adaptadorvacas.vacasVie
 
     public static class vacasViewHolder extends RecyclerView.ViewHolder{
 
+        // Declaracion de variables
         public TextView n_arete;
         public TextView f_nacimiento;
         public TextView nombre;
@@ -29,6 +30,8 @@ public class adaptadorvacas extends RecyclerView.Adapter<adaptadorvacas.vacasVie
 
         public vacasViewHolder(View v) {
             super(v);
+
+            //Se enlaza los TextView
             n_arete = (TextView) v.findViewById(R.id.no_arete);
             f_nacimiento = (TextView) v.findViewById(R.id.fecha1);
             nombre = (TextView) v.findViewById(R.id.nombre);
@@ -43,12 +46,14 @@ public class adaptadorvacas extends RecyclerView.Adapter<adaptadorvacas.vacasVie
     public int getItemCount() {return  items.size();}
 
 
+    //se agrega la actividad con la cual se tendra la comunicacion.
     @Override
     public vacasViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.resgistro_card, viewGroup, false);
         return new vacasViewHolder(v);
     }
 
+    // Metodo para enviar los datos al CardView
     public void onBindViewHolder(vacasViewHolder viewHolder, int i){
         viewHolder.n_arete.setText("Arete: " + String.valueOf(items.get(i).getN_arete()));
         viewHolder.f_nacimiento.setText("F.Nac: " + items.get(i).getF_nacimiento());

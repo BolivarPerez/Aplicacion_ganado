@@ -18,11 +18,7 @@ public class MainActivity extends ActionBarActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,6 +30,8 @@ public class MainActivity extends ActionBarActivity  {
         return true;
     }
 
+
+    //Metodo para mandar llamar las activdades desde los menus
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -68,19 +66,6 @@ public class MainActivity extends ActionBarActivity  {
         }
     }
 }
-       /* @Override
-        public void onClick (View v){
-            switch (v.getId()) {
 
-                case R.id.btnIniciar:
-
-                    Intent intent = new Intent(getBaseContext(), registro_vacas.class);
-                    startActivity(intent);
-
-                    break;
-
-            }
-
-      */
 
 

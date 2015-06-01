@@ -24,6 +24,8 @@ import java.util.Calendar;
 
 
 public class registro_vacas extends ActionBarActivity implements View.OnClickListener {
+
+    // Se declaran las variables
     EditText ed_no_arete, ed_fecha_nacimiento, ed_nombre, ed_sexo, ed_fecha_gestacion, ed_fecha_parto;
     private int mYear, mMonth, mDay;
     CheckBox macho, hembra;
@@ -34,6 +36,7 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registro_vacas);
 
+        // Se enlazan los EditText y CheckBox
         ed_no_arete = (EditText) findViewById(R.id.ed_no_arete);
         ed_fecha_nacimiento = (EditText) findViewById(R.id.ed_fecha_nacimiento);
         ed_nombre = (EditText) findViewById(R.id.ed_nombre);
@@ -46,65 +49,68 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
 
     }
 
+    // Metodo para guardar los datos en la base de datos
     public void Guardar(View v) {
 
         boolean funciona = true;
-        if (ed_no_arete.getText().toString().equals("") || ed_fecha_nacimiento.getText().toString().equals("")|| ed_nombre.getText().toString().equals("")  ) {
-
-            Toast.makeText(this, R.string.msg2 , Toast.LENGTH_SHORT).show();
-
-        } else {
-            try {
-                AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
-                SQLiteDatabase bd = admin.getWritableDatabase();
-
-                String n_arete = ed_no_arete.getText().toString();
-                String f_nacimiento = ed_fecha_nacimiento.getText().toString();
-                String nombre = ed_nombre.getText().toString();
-                String sex = ed_sexo.getText().toString();
-
-                String f_gestacion = ed_fecha_gestacion.getText().toString();
-                String f_parto = ed_fecha_parto.getText().toString();
-
-                if (macho.isChecked() == true){
-                    sex = "MACHO";
-                 }
-                else if (hembra.isChecked() == true){
-                    sex = "HEMBRA";
-                }
+        if (ed_no_arete.getText().toString().equals("") || ed_fecha_nacimiento.getText().toString().equals("") || ed_nombre.getText().toString().equals("") || macho.isChecked() == false  && hembra.isChecked() == false ) {
 
 
-                Cursor fila = bd.rawQuery("select f_nacimiento, nombre, sexo, f_gestacion, f_parto from ganado where n_arete=" + n_arete, null);
-                if (fila.getCount() >= 1) {
-                    Toast.makeText(this, R.string.este_num, Toast.LENGTH_SHORT).show();
-                } else {
+            Toast.makeText(this, R.string.msg2, Toast.LENGTH_SHORT).show();
 
-                    ContentValues registro = new ContentValues();
-                    registro.put("n_arete", n_arete);
-                    registro.put("f_nacimiento", f_nacimiento);
-                    registro.put("nombre", nombre);
-                    registro.put("sexo", sex);
 
-                    registro.put("f_gestacion", f_gestacion);
-                    registro.put("f_parto", f_parto);
 
-                    bd.insert("ganado", null, registro);
-                    bd.close();
+            } else {
+                try {
+                    AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "ganado", null, 1);
+                    SQLiteDatabase bd = admin.getWritableDatabase();
 
-                    ed_no_arete.setText("");
-                    ed_fecha_nacimiento.setText("");
-                    ed_nombre.setText("");
-                    ed_sexo.setText("");
-                    ed_fecha_gestacion.setText("");
-                    ed_fecha_parto.setText("");
-                    macho.setChecked(false);
-                    hembra.setChecked(false);
+                    String n_arete = ed_no_arete.getText().toString();
+                    String f_nacimiento = ed_fecha_nacimiento.getText().toString();
+                    String nombre = ed_nombre.getText().toString();
+                    String sex = ed_sexo.getText().toString();
 
-                    Toast.makeText(this, R.string.agrego, Toast.LENGTH_SHORT).show();
-                }//fin else
-                }catch(Exception e){
+                    String f_gestacion = ed_fecha_gestacion.getText().toString();
+                    String f_parto = ed_fecha_parto.getText().toString();
 
-                Toast.makeText(this, R.string.negativo, Toast.LENGTH_SHORT).show();
+                    if (macho.isChecked() == true) {
+                        sex = "MACHO";
+                    } else if (hembra.isChecked() == true) {
+                        sex = "HEMBRA";
+                    }
+
+
+                    Cursor fila = bd.rawQuery("select f_nacimiento, nombre, sexo, f_gestacion, f_parto from ganado where n_arete=" + n_arete, null);
+                    if (fila.getCount() >= 1) {
+                        Toast.makeText(this, R.string.este_num, Toast.LENGTH_SHORT).show();
+                    } else {
+
+                        ContentValues registro = new ContentValues();
+                        registro.put("n_arete", n_arete);
+                        registro.put("f_nacimiento", f_nacimiento);
+                        registro.put("nombre", nombre);
+                        registro.put("sexo", sex);
+
+                        registro.put("f_gestacion", f_gestacion);
+                        registro.put("f_parto", f_parto);
+
+                        bd.insert("ganado", null, registro);
+                        bd.close();
+
+                        ed_no_arete.setText("");
+                        ed_fecha_nacimiento.setText("");
+                        ed_nombre.setText("");
+                        ed_sexo.setText("");
+                        ed_fecha_gestacion.setText("");
+                        ed_fecha_parto.setText("");
+                        macho.setChecked(false);
+                        hembra.setChecked(false);
+
+                        Toast.makeText(this, R.string.agrego, Toast.LENGTH_SHORT).show();
+                    }//fin else
+                } catch (Exception e) {
+
+                    Toast.makeText(this, R.string.negativo, Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -112,15 +118,18 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         }
 
 
+    //Metodo para indicar que cuando este CheckBox  este seleccionado el otro debe estar vacio.
     public void macho (View v){
 
         hembra.setChecked(false);
     }
 
+    //Metodo para indicar que cuando este CheckBox  este seleccionado el otro debe estar vacio.
     public void hembra(View v){
         macho.setChecked(false);
     }
 
+    //Metodo para mandar llamar la fecha desde el dispositivo y mostrarla en el EditTex indicado.
     public void Fecha_1(View v){
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -139,6 +148,8 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
                 }, mYear, mMonth, mDay);
         dpd.show();
     }
+
+    //Metodo para mandar llamar la fecha desde el dispositivo y mostrarla en el EditTex indicado.
     public void Fecha_2(View v){
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -158,6 +169,8 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         dpd.show();
 
     }
+
+    //Metodo para mandar llamar la fecha desde el dispositivo y mostrarla en el EditTex indicado.
     public  void Fecha_3(View v){
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -185,20 +198,37 @@ public class registro_vacas extends ActionBarActivity implements View.OnClickLis
         return true;
     }
 
+    //Metodo para darle funcionalidad a los menus, en la actividad registro vacas.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        /*int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+        */
 
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+
+            case R.id.bus:
+                Intent intent2 = new Intent(registro_vacas.this, busqueda_vacas.class);
+                startActivity(intent2);
+                return true;
+
+            case R.id.verT:
+                Intent intent3 = new Intent(registro_vacas.this, vista_todo.class);
+                startActivity(intent3);
+                return true;
+            default:
+
+                return super.onOptionsItemSelected(item);
+        }
     }
+
 
     @Override
     public void onClick(View v) {

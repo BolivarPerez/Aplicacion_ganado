@@ -4,6 +4,8 @@ package com.example.boli.aplicacion_ganado.modelos;
  * Created by BOLI on 23/04/2015.
  */
 public class modelo_vacas {
+
+    //Declaracion de variables.
     private String n_arete;
     private String f_nacimiento;
     private String nombre;
@@ -11,6 +13,7 @@ public class modelo_vacas {
     private String f_gestacion;
     private String f_parto;
 
+    //Constructor
     public modelo_vacas(String n_arete, String f_nacimiento, String nombre, String sexo, String f_gestacion, String f_parto) {
         this.n_arete = n_arete;
         this.f_nacimiento = f_nacimiento;
@@ -20,6 +23,7 @@ public class modelo_vacas {
         this.f_parto = f_parto;
     }
 
+    // Metodos Getter
     public String getN_arete() {
         return n_arete;
     }
